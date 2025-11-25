@@ -21,5 +21,5 @@ jobs:
         run: ant -noinput -buildfile Rational/build.xml test
       
       - name: Run Maven install
-        run: cd RationalMaven/ && mvn install
+        run: cd RationalMaven/ && mvn install && mvn test
 
