@@ -1,15 +1,21 @@
-name: Test Rational Project
-on: [push]
+name: Build and Test
+
+on:
+  push:
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Java JDK
+
+      - name: Set up Java
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-      - name: Test with Ant
+
+      - name: Run Ant test
         run: ant -noinput -buildfile Rational/build.xml test
