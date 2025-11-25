@@ -23,3 +23,5 @@ jobs:
       - name: Run Maven install
         run: cd RationalMaven/ && mvn install && mvn test
 
+      - name: Run Gradle test
+        run: cd RationalGradle && ./gradlew test
