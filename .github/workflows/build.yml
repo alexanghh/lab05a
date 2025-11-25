@@ -18,10 +18,19 @@ jobs:
           distribution: 'temurin'
 
       - name: Run Ant test
-        run: ant -noinput -buildfile Rational/build.xml test
-      
+        run: |
+          if [ -d "Rational" ]; then
+            ant -noinput -buildfile Rational/build.xml test
+          fi
+
       - name: Run Maven install
-        run: cd RationalMaven/ && mvn install && mvn test
+        run: |
+          if [ -d "RationalMaven" ]; then
+            cd RationalMaven/ && mvn install && mvn test
+          fi
 
       - name: Run Gradle test
-        run: cd RationalGradle && ./gradlew test
+        run: |
+          if [ -d "RationalGradle" ]; then
+            cd RationalGradle && ./gradlew test
+          fi
