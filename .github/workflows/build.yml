@@ -26,11 +26,17 @@ jobs:
       - name: Run Maven install
         run: |
           if [ -d "RationalMaven" ]; then
-            cd RationalMaven/ && mvn install && mvn test
+            cd RationalMaven
+            mvn install
+            mvn test
           fi
-
+          
+      - name: Change wrapper permissions
+        
       - name: Run Gradle test
         run: |
           if [ -d "RationalGradle" ]; then
-            cd RationalGradle && ./gradlew test
+            cd RationalGradle
+            chmod +x ./gradlew
+            ./gradlew test
           fi
