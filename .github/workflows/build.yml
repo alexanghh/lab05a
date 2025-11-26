@@ -31,8 +31,6 @@ jobs:
             mvn test
           fi
           
-      - name: Change wrapper permissions
-        
       - name: Run Gradle test
         run: |
           if [ -d "RationalGradle" ]; then
